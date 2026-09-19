@@ -7,6 +7,9 @@ After a night of imaging, I need a reliable way to gather the data and push it t
 - FTP Destination
 - NINA Advanced API
 - Discord webook destination
+- GIT
+- github token
+- github.token file
 
 ## Personal Setup
 UGREEN 4 bay NAS with 4x16GB disks (homenas)
