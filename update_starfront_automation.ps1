@@ -13,5 +13,7 @@ function touch {
 }
 
 Set-Location $PSScriptRoot
+
 git pull
-touch -path "D:\automationscripts\lastupdate.ts"
+
+touch -path "$($PSScriptRoot)\lastupdate.ts"
