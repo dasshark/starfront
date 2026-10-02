@@ -15,7 +15,7 @@ After a night of imaging, I need a reliable way to gather the data and push it t
 UGREEN 4 bay NAS with 4x16GB disks (homenas)
 Tailscale for ZeroTrust VPN access
 
-## Activities 
+## Activities - Image Transfer
 1. Test that FTP server is available, exit if not
 2. Send NINA logs
 3. Send NINA sequence template files
@@ -27,3 +27,9 @@ Tailscale for ZeroTrust VPN access
    - continue if API not running, indicating system reboot probable
 7. Transfer images
 8. Move transferred images to "transferred" folder
+
+## Activities - Daily Git repository pull
+1. pull repository data every day
+
+## Activities - Notify on reboot
+1. Send discord notification on systems startup

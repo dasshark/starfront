@@ -4,18 +4,7 @@ $upload_base_path = "/LocallyBackup/starfront_unsorted"
 
 
 #region functions
-function Send-Discord {
-    param(
-        [string]$message,
-        [string]$discord_webhook = "https://discord.com/api/webhooks/1518401230513242152/PbTnrgNqUGG-Zkoi5ctnUxxhav-F0FuJ6k1t9TkUCA6IVsk1FfjBwnX7zbCMEj5Kd_b-"
-    )
-    $payload = @{
-        content  = $message
-        username = "Starfront Powershell Bot"
-        avatar_url = "https://cdn3.emoji.gg/emojis/65264-telescope.png"
-    }| ConvertTo-Json
-Invoke-RestMethod -Uri $discord_webhook -Method Post -Body $payload -ContentType "application/json"
-}
+. ./send-discord.ps1
 
 function Test-FTPDestination {
     $server = "nas2.tail236ed0.ts.net"
@@ -84,7 +73,7 @@ function Send-TemplateFiles {
 
 function Send-Images {
     $foldernames = (Get-ChildItem -Path "D:\CapturedImages\" -Directory -ErrorAction SilentlyContinue ).Name
-    if ($foldername) {
+    if ($foldernames) {
         Send-Discord -message "Un-sync'd imaging nights found: $(($foldernames).count)"
         foreach ($foldername in $foldernames) {
             $images = Get-ChildItem -path "D:\CapturedImages\$($foldername)" -Filter "*.fits" -recurse | Group-Object DirectoryName | Select-Object Name, Count
