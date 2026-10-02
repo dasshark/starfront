@@ -19,4 +19,6 @@
 
     #WinSCP installation path for .com executable
     winscp_executable_path = "C:\Program Files (x86)\WinSCP\WinSCP.com"
+    winscp_profile_name = "Home_UGREEN"
+
 }
