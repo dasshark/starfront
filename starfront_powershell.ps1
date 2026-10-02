@@ -1,4 +1,5 @@
 Start-Transcript -OutputDirectory "D:\AutomationLogs"
+Set-Location $PSScriptRoot  
 
 $upload_base_path = "/LocallyBackup/starfront_unsorted"
 
