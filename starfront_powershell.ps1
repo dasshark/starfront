@@ -84,7 +84,7 @@ function Send-Images {
             Send-Discord -message "IMAGELIST: Sending Files:`n  $($images | ForEach-Object {"$(($_.name).replace('$($config.captured_images_path)\','')) - $($_.count)`n"} )" -discord_webhook $config.discord_webhook_uri
             Send-Discord -message "IMAGES: Starting Images Transfer for folder $($foldername)" -discord_webhook $config.discord_webhook_uri
             $transfer_time = Measure-Command { & $($config.winscp_executable_path) $config.winscp_profile_name /command "put -neweronly $($config.captured_images_path)\$($foldername) $($upload_base_path)/" "exit" }
-            Send-Discord -message "IMAGES: File transfer completed in $($transfer_time.Minutes) minutes" -discord_webhook $config.discord_webhook_uri
+            Send-Discord -message "IMAGES: File transfer completed in $($transfer_time.TotalMinutes) minutes" -discord_webhook $config.discord_webhook_uri
             Move-Item -Path "$($config.captured_images_path)\$($foldername)" -Destination "$($config.transferred_images_path)\$($foldername)"
             Send-Discord -message "IMAGES: Transferred image folder moved to $($config.transferred_images_path)\$($foldername)" -discord_webhook $config.discord_webhook_uri
         }
