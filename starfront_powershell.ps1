@@ -71,6 +71,11 @@ function Send-TemplateFiles {
     & $($config.winscp_executable_path) $config.winscp_profile_name /command "synchronize remote $($NINA_targets_path) $($upload_base_path)/NINA_Targets/" "exit"
     Send-Discord -message "TARGETS: Sequence targets backup complete" -discord_webhook $config.discord_webhook_uri
 
+    # PHD2 Calibration Backup
+    Send-Discord -message "PHD2: Backing up PHD2 calibration files" -discord_webhook $config.discord_webhook_uri
+    & $($config.winscp_executable_path) $config.winscp_profile_name /command "synchronize remote $($PHD2_calibration_path) $($upload_base_path)/PHD2_Backup/" "exit"
+
+
 }
 
 
